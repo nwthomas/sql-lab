@@ -39,13 +39,15 @@
 
 ## list orders grouped by customer showing the number of orders per customer. _Rattlesnake Canyon Grocery_ should have 7 orders.
 
+This question was confusing for me... Here's one version that lists all orders on individual lines:
+
 `SELECT o.OrderID, o.CustomerID, c.CustomerName`
 `FROM Orders AS o`
 `JOIN Customers AS c`
 `ON o.CustomerID = c.CustomerID`
 `ORDER BY CustomerName, OrderDate`
 
-Also, this might also be what the actual answer is interpreted as:
+Also, this might also be what the actual answer is interpreted as with grouped orders for each customer:
 
 `SELECT c.CustomerName, c.CustomerID, COUNT(o.CustomerID) AS TotalOrders`
 `FROM Orders AS o`
