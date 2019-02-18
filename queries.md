@@ -70,3 +70,10 @@ Also, this might also be what the actual answer is interpreted as:
 `ORDER BY c.City`
 
 ## delete all users that have no orders. Should delete 17 (or 18 if you haven't deleted the record added) records.
+
+`DELETE FROM Customers`
+`WHERE NOT EXISTS (`
+`SELECT *`
+`FROM Orders`
+`WHERE CustomerID = Customers.CustomerID`
+`)`
